@@ -62,6 +62,8 @@ struct HistoryView: View {
               .frame(height: 48)
               .padding(.top, 16)
               Divider().padding(.top, 16)
+            }.onTapGesture {
+              store.send(.openHistory(item))
             }
           }
         }.padding(16)
