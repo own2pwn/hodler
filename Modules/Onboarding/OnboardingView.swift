@@ -28,7 +28,7 @@ struct OnboardingView: View {
         ForEach(0 ..< seedWords.count, id: \.self) { index in
           HStack(alignment: .center, spacing: 2) {
             Text("\(index + 1).")
-              .font(.caption)
+              .font(.callout)
               .foregroundColor(.gray)
               .padding(.top, 2)
             Text(seedWords[index])

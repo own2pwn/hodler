@@ -34,6 +34,12 @@ final class AppRouter: Router {
 
   private func startMainFlow(state: WalletState) {
     let router = WalletRouter(wallet: state.wallet)
+    router.onLogout = { [unowned router] in
+      self.detach(router)
+      self.walletRouter = nil
+      self.controller.logout()
+      self.start()
+    }
     walletRouter = router
     attach(router)
     window?.rootViewController = router.viewController
